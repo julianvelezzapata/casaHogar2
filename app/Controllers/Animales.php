@@ -54,13 +54,30 @@ class Animales extends BaseController
         $resultado=$modelo->findAll();// despues decirle que si me puede ayudar a buscar todos los datos        
         $animales=array('animales'=>$resultado); // adecuar la respuesta para poderla enviar, creo variable animales
         
-        return view('listaProductos',$animales); // retornar la vista en el arreglo productos
+        return view('listaAnimales',$animales); // retornar la vista en el arreglo productos
 
       }catch(\Exception $error) { // capture por que no pudo hacerse (error)
       // arreglar  return redirect()->to(site_url('/animales/ingreso'))->with('mensaje',$error -> getMessage());
       }
       return view ('listaAnimales');
     }
+
+    public function eliminar($id){
+      try{
+         $modelo=new AnimalModelo();
+         
+         $modelo->where('id',$id)->delete();
+         return redirect()->to(site_url('/productos/ingreso'))->with('mensaje',"exito eliminando el producto");
+ 
+        }catch(\Exception $error){
+             return redirect()->to(site_url('/productos/ingreso'))->with('mensaje',$error->getMessage());
+ 
+      }
+ 
+ 
+    }
+
+
 
 
 }

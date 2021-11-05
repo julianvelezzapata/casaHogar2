@@ -41,6 +41,7 @@ $routes -> get('/productos/listado/animales', 'Animales::buscar');
 $routes -> post('/productos/registro/nuevo', 'Productos::registrar'); // ruta que me llevara la funcion registrar
 $routes -> post('/productos/ingreso/animales', 'Animales::ingreso');// ruta que me llevara a la funcion ingresar
 $routes -> delete('/productos/eliminar/(:num)', 'Productos::eliminar/$1');// lo que le digo a codeignater es que va a llevar cualquier numero, el 1 es porque estoy diciendo que eliminar lleva un dato
+$routes -> delete('/animales/eliminar/(:num)', 'Animales::eliminar/$1');
 $routes -> post('/productos/editar/(:num)', 'Productos::editar/$1');
 
 

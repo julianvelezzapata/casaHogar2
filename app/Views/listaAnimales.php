@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Animalandia</title>
@@ -41,12 +41,13 @@
 			</div>
 		</nav>
 	</header>
+    
 
-	<main>
+
+    <main>
         <div class="container mt-5">
             <div class="row row-cols-1 row-cols-md-5 g-4">
                 <?php
-
                                                         use App\Controllers\Animales;
 
                 foreach($animales as $animal): ?>
@@ -56,9 +57,8 @@
                             <h5 class="card-title"><?= $animal["nombre"] ?></h5>
                             <p class="card-text">edad: <?= $animal["edad"] ?></p>
                             <a href="#" class="btn btn-primary"type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmacion<?=$animal["id"]?>"><i class="fas fa-trash-alt"></i></a>                           
-                            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editar<?=$animal["id"]?>"><i class="far fa-edit" ></i></a>
+                            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editar<?=$producto["id"]?>"><i class="far fa-edit" ></i></a>
                         </div>
-                        
                         <section>
                             <div class="modal fade" id="confirmacion<?= $animal["id"]?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -73,7 +73,7 @@
                                     </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                            <a href="<?= site_url('/productos/eliminar/'.$producto["id"])?>" class="btn btn-danger">Aceptar</a>
+                                            <a href="<?= site_url('/animales/eliminar/'.$animal["id"])?>" class="btn btn-danger">Aceptar</a>
                                         </div>
                                     </div>
                                 </div>
@@ -117,8 +117,6 @@
             </div>
         </div>
     </main>
-
-
     <script src="https://kit.fontawesome.com/7b642ec699.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script> 
 </body>
