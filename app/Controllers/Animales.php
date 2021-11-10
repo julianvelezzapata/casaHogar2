@@ -39,7 +39,7 @@ class Animales extends BaseController
       try {                       // intente hacer esto  
         $modelo = new AnimalModelo();
         $modelo-> insert($datos);     // insert() palabra reservada codeignater para insertar el arreglo que contiene la informacion
-        return redirect()->to(site_url('/productos/ingreso'))->with('mensaje',"exito agregando producto");
+        return redirect()->to(site_url('/productos/ingreso'))->with('mensaje',"exito agregando animal");
         
       } catch (\Exception $error) { // capture por que no pudo hacerse (error)
         return redirect()->to(site_url('/productos/ingreso'))->with('mensaje',$error -> getMessage());    
@@ -67,15 +67,53 @@ class Animales extends BaseController
          $modelo=new AnimalModelo();
          
          $modelo->where('id',$id)->delete();
-         return redirect()->to(site_url('/productos/ingreso'))->with('mensaje',"exito eliminando el producto");
+         return redirect()->to(site_url('/productos/ingreso'))->with('mensaje',"exito eliminando el animal");
  
         }catch(\Exception $error){
              return redirect()->to(site_url('/productos/ingreso'))->with('mensaje',$error->getMessage());
  
       }
- 
- 
     }
+
+
+
+              public function editar($id){
+
+                //recibo datos
+                $nombre=$this->request->getPost("nombre");
+                $edad=$this->request->getPost("edad");
+                $descripcion=$this->request->getPost("descripcion");
+                $tipo=$this->request->getPost("tipo");
+        
+                //validacion de datos
+        
+                //Organizo los datos en un array asociativo
+                $datos=array(
+                  "nombre"=>$nombre,
+                  "edad"=>$edad,
+                  "descripcion"=>$descripcion,
+                  "tipo"=>$tipo
+                );
+        
+                //echo("estamos editando el producto ".$id);
+                //print_r($datos);
+        
+                //crear un objeto del modelo
+                try{
+        
+                    $modelo=new AnimalModelo();
+                    $modelo->update($id,$datos);
+                    return redirect()->to(site_url('/productos/ingreso'))->with('mensaje',"exito editando el animal");
+        
+        
+        
+                }catch(\Exception $error){
+        
+                    return redirect()->to(site_url('/productos/ingreso'))->with('mensaje',$error->getMessage());
+                }
+        
+            }
+
 
 
 

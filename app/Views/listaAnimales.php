@@ -57,7 +57,7 @@
                             <h5 class="card-title"><?= $animal["nombre"] ?></h5>
                             <p class="card-text">edad: <?= $animal["edad"] ?></p>
                             <a href="#" class="btn btn-primary"type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmacion<?=$animal["id"]?>"><i class="fas fa-trash-alt"></i></a>                           
-                            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editar<?=$producto["id"]?>"><i class="far fa-edit" ></i></a>
+                            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editar<?=$animal["id"]?>"><i class="far fa-edit" ></i></a>
                         </div>
                         <section>
                             <div class="modal fade" id="confirmacion<?= $animal["id"]?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -80,7 +80,7 @@
                             </div>
                         </section>
                         <section>
-                            <div class="modal fade" id="editar<?= $producto["id"]?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="editar<?= $animal["id"]?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -90,17 +90,32 @@
                                     <div class="modal-body">
                                         <div class="row">
                                             <div class="col-3">
-                                                <img src="<?= $producto["foto"] ?>" alt="foto" class="imag-fluid w-100">
+                                                <img src="<?= $animal["foto"] ?>" alt="foto" class="imag-fluid w-100">
                                             </div>
                                             <div class="col-9">
-                                                <form action="<?= site_url('/productos/editar/'.$producto["id"]) ?>" method="POST">
-                                                    <div class="mb-3">
-                                                        <label class="form-label">precio</label>
-                                                        <input type="number" class="form-control" name="precio" value="<?= $producto["precio"] ?>">
-                                                    </div>
+                                                <form action="<?= site_url('/animales/editar/'.$animal["id"]) ?>" method="POST">
                                                     <div class="mb-3">
                                                         <label class="form-label">nombre</label>
-                                                        <input type="text" class="form-control" name="producto" value="<?= $producto["producto"] ?>">
+                                                        <input type="text" class="form-control" name="nombre" value="<?= $animal["nombre"] ?>">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">edad</label>
+                                                        <input type="text" class="form-control" name="edad" value="<?= $animal["edad"] ?>">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                    <label class="form-label">descripcion</label>
+                                                        <input type="text" class="form-control" name="descripcion" value="<?= $animal["descripcion"] ?>">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                     <label for="exampleDataList" class="form-label">Tipo de animal</label>    
+                                                        <select class="form-select" aria-label="Default select example" name="tipo">
+                                                             
+                                                                <option selected value="1">perro</option>
+                                                                <option value="2">caballo</option>
+                                                                <option value="3">rata</option>
+                                                                <option value="4">lagartija</option>
+                                                                <option value="5">gato</option>
+                                                        </select>
                                                     </div>
                                                     <button type="submit">Editar</button>
                                                 </form>
