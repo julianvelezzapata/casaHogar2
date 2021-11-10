@@ -62,6 +62,23 @@ class Animales extends BaseController
       return view ('listaAnimales');
     }
 
+    public function buscartipo($tipo){
+
+     try{
+        
+        $modelo= new AnimalModelo();// lo primero que tengo que hacer para buscar datos es buscar el modelo        
+        $resultado=$modelo-> where('tipo',$tipo)->findAll();// despues decirle que si me puede ayudar a buscar todos los datos       
+        $animales=array('animales'=>$resultado); // adecuar la respuesta para poderla enviar, creo variable animales
+        
+        return view('listaAnimales',$animales); // retornar la vista en el arreglo productos
+
+      }catch(\Exception $error) { // capture por que no pudo hacerse (error)
+      // arreglar  return redirect()->to(site_url('/animales/ingreso'))->with('mensaje',$error -> getMessage());
+      }
+      return view ('listaAnimales'); 
+    }
+
+
     public function eliminar($id){
       try{
          $modelo=new AnimalModelo();
@@ -113,6 +130,7 @@ class Animales extends BaseController
                 }
         
             }
+      
 
 
 

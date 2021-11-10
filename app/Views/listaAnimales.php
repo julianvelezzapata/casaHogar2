@@ -102,21 +102,7 @@
                                                         <label class="form-label">edad</label>
                                                         <input type="text" class="form-control" name="edad" value="<?= $animal["edad"] ?>">
                                                     </div>
-                                                    <div class="mb-3">
-                                                    <label class="form-label">descripcion</label>
-                                                        <input type="text" class="form-control" name="descripcion" value="<?= $animal["descripcion"] ?>">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                     <label for="exampleDataList" class="form-label">Tipo de animal</label>    
-                                                        <select class="form-select" aria-label="Default select example" name="tipo">
-                                                             
-                                                                <option selected value="1">perro</option>
-                                                                <option value="2">caballo</option>
-                                                                <option value="3">rata</option>
-                                                                <option value="4">lagartija</option>
-                                                                <option value="5">gato</option>
-                                                        </select>
-                                                    </div>
+                                            
                                                     <button type="submit">Editar</button>
                                                 </form>
                                             </div>

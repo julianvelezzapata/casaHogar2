@@ -45,6 +45,7 @@ $routes -> delete('/animales/eliminar/(:num)', 'Animales::eliminar/$1');
 
 $routes -> post('/animales/editar/(:num)', 'Animales::editar/$1');
 $routes -> post('/productos/editar/(:num)', 'Productos::editar/$1');
+$routes -> get('/animales/buscar/(:num)', 'Animales::buscartipo/$1');
 
 
 /*
